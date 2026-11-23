@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #101116;
+  --surface: #ffffff;
+  --card: #f5f7fb;
+  --card-foreground: #101116;
+  --primary: #153e9f;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f7fb;
+  --secondary-foreground: #101116;
+  --muted: #f5f7fb;
+  --muted-foreground: #777d89;
+  --accent: #edf2ff;
+  --accent-foreground: #153e9f;
+  --electric: #4169e1;
+  --ink: #101116;
+  --ink-foreground: #ffffff;
+  --line: rgba(16, 17, 22, 0.12);
+  --line-dark: rgba(255, 255, 255, 0.14);
+  --border: rgba(16, 17, 22, 0.12);
+  --input: rgba(16, 17, 22, 0.15);
+  --ring: #4169e1;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-inter), sans-serif;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+}
+
+.container-x {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-x {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(
+    110deg,
+    #101116 0%,
+    #153e9f 28%,
+    #4169e1 50%,
+    #153e9f 72%,
+    #101116 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes marquee-x {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee,
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+.display-lg {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.25rem, 5.2vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.display-md {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.75rem, 3.4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.bg-fade-ink {
+  background: linear-gradient(to top, rgba(16, 17, 22, 0.85) 0%, rgba(16, 17, 22, 0.2) 55%, transparent 100%);
+}
