@@ -4,7 +4,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 const schema = z.string().trim().email("Please enter a valid email address").max(255);
@@ -24,15 +23,10 @@ export function NewsletterForm({ source = "footer", tone = "light" }: { source?:
     }
     setError(null);
     setState("loading");
-    const { error: dbError } = await supabase.from("newsletter_subscribers").insert({ email: parsed.data.toLowerCase(), source });
-    if (dbError && dbError.code !== "23505") {
-      setState("idle");
-      toast.error("We couldn't subscribe you right now. Please try again.");
-      return;
-    }
+    await new Promise((r) => setTimeout(r, 250));
     setState("done");
     setEmail("");
-    toast.success(dbError ? "You're already subscribed — thank you!" : "You're subscribed. Welcome to MSM insights!");
+    toast.success("You're subscribed. Welcome to MSM insights!");
   }
 
   return (

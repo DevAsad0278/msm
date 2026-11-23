@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Check } from "lucide-react";
 import { useState } from "react";
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { formatPrice } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { PillLink } from "@/components/site/pill-button";

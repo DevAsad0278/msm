@@ -1,6 +1,6 @@
 'use client';
 
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { IMG } from "@/lib/images";
 import { SectionHeading } from "@/components/site/section-heading";
 import { PillLink } from "@/components/site/pill-button";

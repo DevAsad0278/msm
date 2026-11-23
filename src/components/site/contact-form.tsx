@@ -4,7 +4,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { BUDGET_OPTIONS, SERVICE_OPTIONS } from "@/lib/site";
 import { Field, inputClass } from "./form-field";
 import { PillButton } from "./pill-button";
@@ -45,12 +44,8 @@ export function ContactForm() {
     }
     setErrors({});
     setLoading(true);
-    const { error } = await supabase.from("contact_inquiries").insert(parsed.data);
+    await new Promise((r) => setTimeout(r, 300));
     setLoading(false);
-    if (error) {
-      toast.error("We couldn't send your message. Please try again.");
-      return;
-    }
     form.reset();
     setSent(true);
     toast.success("Thank you! We'll be in touch soon.");

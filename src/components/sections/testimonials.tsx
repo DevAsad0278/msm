@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { IMG } from "@/lib/images";
 import { SplitReveal } from "@/components/site/motion";
 

@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/site/section-heading";
 

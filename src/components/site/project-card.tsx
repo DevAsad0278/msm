@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { pillVariants } from "@/components/site/pill-button";
 

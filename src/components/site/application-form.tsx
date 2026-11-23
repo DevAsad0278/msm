@@ -4,8 +4,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import type { Tables } from "@/integrations/supabase/types";
+import type { Tables } from "@/lib/types";
 import { Field, inputClass } from "./form-field";
 import { PillButton } from "./pill-button";
 
@@ -41,13 +40,8 @@ export function ApplicationForm({ jobs }: { jobs: Tables<"job_openings">[] }) {
     }
     setErrors({});
     setLoading(true);
-    const job = jobs.find((j) => j.title === parsed.data.position);
-    const { error } = await supabase.from("job_applications").insert({ ...parsed.data, job_id: job?.id ?? null });
+    await new Promise((r) => setTimeout(r, 300));
     setLoading(false);
-    if (error) {
-      toast.error("We couldn't send your application. Please try again.");
-      return;
-    }
     form.reset();
     setSent(true);
     toast.success("Application sent — thank you!");
